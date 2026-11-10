@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* 1. Primary Medical Brand Palette */
+  --primary-blue: #3F9BE8;
+  --primary-dark: #1F6FB2;
+  --primary-deep: #155A8A;
+  --primary-light: #EAF5FC;
+  --primary-ultra-light: #F4FAFE;
+
+  /* 2. Neutral & Background Palette */
+  --background: #FFFFFF;
+  --background-light: #F5F9FC;
+  --background-blue: #EAF5FC;
+
+  /* 3. Typography & Content Palette */
+  --heading: #163A5F;
+  --text-primary: #1F2937;
+  --text-secondary: #64748B;
+  --text-light: #94A3B8;
+  --text-senior: #0F172A;
+
+  /* 4. Border & Structural Divider Palette */
+  --border: #DCEAF4;
+  --border-light: #E8F1F7;
+
+  /* 5. Status & Feedback Palette */
+  --success: #22A06B;
+  --warning: #F59E0B;
+  --error: #DC3545;
+
+  /* 6. Shadow & Glow Tints */
+  --shadow-sm: 0 2px 8px -1px rgba(31, 111, 178, 0.08);
+  --shadow-md: 0 4px 20px -2px rgba(31, 111, 178, 0.12);
+  --shadow-lg: 0 10px 30px -4px rgba(31, 111, 178, 0.16);
+  --btn-primary-glow: 0 4px 14px 0 rgba(63, 155, 232, 0.25);
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  /* Senior Mode Overrides (+25% font, 56px touch targets, high contrast) */
+  body.senior-mode {
+    font-size: 1.25rem;
+    line-height: 1.75;
+    color: var(--text-senior);
+    background-color: #FFFFFF;
+  }
+
+  body.senior-mode button,
+  body.senior-mode a,
+  body.senior-mode input,
+  body.senior-mode select,
+  body.senior-mode textarea {
+    min-height: 52px;
+    font-size: 1.125rem;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-200 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+    background-color: var(--primary-blue);
+    box-shadow: var(--btn-primary-glow);
+  }
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-200 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+    background-color: var(--primary-dark);
+    box-shadow: var(--shadow-md);
+  }
+  .btn-secondary:hover {
+    background-color: var(--primary-deep);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-200 active:scale-[0.98];
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+  }
+  .btn-outline:hover {
+    background-color: var(--primary-light);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-medium transition-colors;
+    color: var(--text-secondary);
+  }
+  .btn-ghost:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+  }
+
+  .card-surface {
+    @apply bg-white rounded-2xl transition-all duration-200;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .card-surface:hover {
+    border-color: rgba(63, 155, 232, 0.4);
+    box-shadow: var(--shadow-md);
+  }
+
+  .badge-tag {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .page-title {
+    @apply font-heading text-3xl sm:text-4xl font-bold tracking-tight;
+    color: var(--heading);
+  }
+}

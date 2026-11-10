@@ -1,0 +1,3 @@
+"""
+SilverHands AI Services Package.
+"""
